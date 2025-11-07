@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function Home() {
   const t = useTranslations();
@@ -20,24 +20,24 @@ export default function Home() {
             {t('common.welcome')}
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Feature-Sliced Design with next-intl. Try the{" "}
+            Feature-Sliced Design with next-intl. Try the{' '}
             <a href="/login" className="font-medium text-zinc-950 dark:text-zinc-50 underline">
               Login Feature
-            </a>
-            {" "}or head over to{" "}
+            </a>{' '}
+            or head over to{' '}
             <a
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Templates
-            </a>{" "}
-            or the{" "}
+            </a>{' '}
+            or the{' '}
             <a
               href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               Learning
-            </a>{" "}
+            </a>{' '}
             center.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function Home() {
             {t('actions.submit')}
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
