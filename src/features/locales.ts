@@ -1,11 +1,10 @@
-import { authLocales } from './auth/locales';
+import type { Locale } from '@/core/i18n/config';
 import { generateLocaleConfig } from '@/shared/utils/locale.utils';
+import { authLocales } from './auth/locales';
 import type { SupportedLanguages } from './models/locales.model';
 
 const modules = {
   auth: authLocales,
-  // dashboard: dashboardLocales,
-  // customers: customersLocales,
 };
 
 export const supportedLanguages = ['en', 'es'] as const as SupportedLanguages;
@@ -20,7 +19,7 @@ export const messages = generateLocaleConfig({
 });
 
 // Helper to get messages for a specific locale
-export const getLocaleMessages = (locale: SupportedLanguage) => {
+export const getLocaleMessages = (locale: Locale) => {
   return messages[locale] || messages['en'];
 };
 

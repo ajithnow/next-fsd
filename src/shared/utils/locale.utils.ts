@@ -1,9 +1,6 @@
-import type { LocaleConfig, NestedMessages } from '../models/locale.model';
+import type { LocaleConfig, NestedMessages } from '@/core/models/i18n.model';
 
-export const generateLocaleConfig = ({
-  modules,
-  supportedLanguages,
-}: LocaleConfig) => {
+export const generateLocaleConfig = ({ modules, supportedLanguages }: LocaleConfig) => {
   const messages: Record<string, Record<string, NestedMessages>> = {};
 
   for (const lang of supportedLanguages) {

@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
-import { getLocale } from 'next-intl/server';
 import type { Locale } from '@/core/i18n/config';
 import QueryProviderClient from '@/core/providers/queryProvider';
-import { getLocaleMessages, type SupportedLanguage } from '@/features/locales';
-import "@/styles/globals.css";
-import I18nProvider from "./i18n-provider.client";
+import { AuthProvider } from '@/features/auth/providers/AuthProvider';
+import { getLocaleMessages } from '@/features/locales';
+import '@/styles/globals.css';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 
 export const metadata: Metadata = {
-  title: "CRLT Web",
-  description: "Feature-Sliced Design with i18n",
+  title: 'CRLT Web',
+  description: 'Feature-Sliced Design with i18n',
 };
 
 export default async function RootLayout({
@@ -17,16 +18,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = (await getLocale()) as Locale;
-  const messages = getLocaleMessages(locale as SupportedLanguage);
+  const messages = getLocaleMessages(locale as Locale);
 
   return (
     <html lang={locale}>
       <body className="antialiased">
-        <I18nProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
           <QueryProviderClient>
-            {children}
+            <AuthProvider>{children}</AuthProvider>
           </QueryProviderClient>
-        </I18nProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

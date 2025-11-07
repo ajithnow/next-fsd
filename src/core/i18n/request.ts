@@ -13,6 +13,7 @@ export default function createRequest(getMessages: GetLocaleMessages) {
     return {
       locale: resolved,
       messages,
+      timeZone: 'UTC',
     } as IntlConfig;
   });
 }

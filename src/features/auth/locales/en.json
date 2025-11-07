@@ -1,9 +1,14 @@
 {
   "login": {
-    "title": "Log In",
+    "title": "Welcome Back",
+    "subtitle": "Sign in to your account",
     "email": "Email",
+    "emailPlaceholder": "Enter your email",
     "password": "Password",
+    "passwordPlaceholder": "Enter your password",
     "submit": "Sign In",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
     "forgotPassword": "Forgot password?",
     "noAccount": "Don't have an account?",
     "signUp": "Sign up",
