@@ -41,10 +41,6 @@ export function LoginForm() {
     });
   };
 
-  const getFieldError = (field: string) => {
-    return (formErrors as any)[field]?.message as string | undefined;
-  };
-
   return (
     <div className={`w-full max-w-md mx-auto p-6 ${styles.loginForm}`}>
       <h2 className="text-2xl font-bold mb-6 text-center">{t('login.title')}</h2>
@@ -70,14 +66,14 @@ export function LoginForm() {
             type="email"
             {...register('email')}
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 ${
-              getFieldError('email')
+              formErrors?.email
                 ? 'border-red-500 focus:ring-red-500'
                 : 'border-gray-300 focus:ring-blue-500'
             }`}
             disabled={isSubmitting || loginMutation.isPending}
           />
-          {getFieldError('email') && (
-            <p className="mt-1 text-sm text-red-600">{getFieldError('email')}</p>
+          {formErrors?.email && (
+            <p className="mt-1 text-sm text-red-600">{formErrors.email.message}</p>
           )}
         </div>
 
@@ -91,14 +87,14 @@ export function LoginForm() {
             type="password"
             {...register('password')}
             className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 ${
-              getFieldError('password')
+              formErrors?.password
                 ? 'border-red-500 focus:ring-red-500'
                 : 'border-gray-300 focus:ring-blue-500'
             }`}
             disabled={isSubmitting || loginMutation.isPending}
           />
-          {getFieldError('password') && (
-            <p className="mt-1 text-sm text-red-600">{getFieldError('password')}</p>
+          {formErrors?.password && (
+            <p className="mt-1 text-sm text-red-600">{formErrors.password.message}</p>
           )}
         </div>
 

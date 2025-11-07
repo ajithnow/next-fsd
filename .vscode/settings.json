@@ -19,5 +19,5 @@
   },
   "prettier.requireConfig": true,
   "prettier.enableDebugLogs": false,
-  "cSpell.words": ["turbopack"]
+  "cSpell.words": ["Nuqs", "turbopack"]
 }

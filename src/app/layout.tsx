@@ -6,6 +6,7 @@ import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 export const metadata: Metadata = {
   title: 'CRLT Web',
@@ -23,11 +24,13 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className="antialiased">
-        <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
-          <QueryProviderClient>
-            <AuthProvider>{children}</AuthProvider>
-          </QueryProviderClient>
-        </NextIntlClientProvider>
+        <NuqsAdapter>
+          <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
+            <QueryProviderClient>
+              <AuthProvider>{children}</AuthProvider>
+            </QueryProviderClient>
+          </NextIntlClientProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
