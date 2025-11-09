@@ -1,6 +1,7 @@
 import type { Locale } from '@/core/i18n/config';
 import QueryProviderClient from '@/core/providers/queryProvider';
 import { AuthProvider } from '@/features/auth/providers/AuthProvider';
+import { NextAuthProvider } from '@/features/auth/providers/NextAuthProvider';
 import { getLocaleMessages } from '@/features/locales';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
@@ -27,7 +28,9 @@ export default async function RootLayout({
         <NuqsAdapter>
           <NextIntlClientProvider locale={locale} messages={messages} timeZone="UTC">
             <QueryProviderClient>
-              <AuthProvider>{children}</AuthProvider>
+              <NextAuthProvider>
+                <AuthProvider>{children}</AuthProvider>
+              </NextAuthProvider>
             </QueryProviderClient>
           </NextIntlClientProvider>
         </NuqsAdapter>

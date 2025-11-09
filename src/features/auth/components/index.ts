@@ -1,1 +1,1 @@
-export * from './modernLoginForm';
+export * from './LoginForm';
